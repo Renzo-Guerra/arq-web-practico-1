@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-// public class DerbyConexion implements Conexion{    // Como hago para que un metodo abstracto sea estatico a la vez???
 public class DerbyConexion {
 	private static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
 	private static String uri = "jdbc:derby:derbyDb;create=true";

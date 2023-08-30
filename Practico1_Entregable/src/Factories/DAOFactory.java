@@ -10,7 +10,7 @@ public abstract class DAOFactory {
 	public static DerbyDAOFactory derbyDaoFactory;
 	
 	// pseudo codigo factory method
-	public static DAOFactoryInterface getDao( String type ) {
+	public static DAOFactoryInterface getDaos( String type ) {
 		switch(type) {
 			case mysql: {
 				if(mysqlDaoFactory == null)		// Si no se instanció una base de datos sql, se instancia una.

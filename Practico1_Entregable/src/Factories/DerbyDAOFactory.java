@@ -1,27 +1,21 @@
 package Factories;
 
-import java.lang.reflect.InvocationTargetException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
-import DAO.Cliente;
-import DAO.Factura;
-import DAO.Factura_Producto;
-import DAO.Producto;
-import Utils.*;
+import DAO.DAOCliente;
+import DAO.DAOFactura;
+import DAO.DAOFactura_Producto;
+import DAO.DAOProducto;
+import DerbyDAO.DerbyDAOCliente;
+import Utils.DerbyTables;
 
 
 public class DerbyDAOFactory implements DAOFactoryInterface{
-	private static Connection conexion;
-	
-	public DerbyDAOFactory() {
-		conexion = DerbyConexion.getInstance();
+	protected DerbyDAOFactory() {
+		createTables();
 	}
 
 	@Override
 	public DAOCliente getDaoCliente() {
-		return 
+		return new DerbyDAOCliente();
 	}
 
 	@Override
@@ -41,5 +35,11 @@ public class DerbyDAOFactory implements DAOFactoryInterface{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
+	private void createTables() {
+		DerbyTables.createClienteTable();
+		DerbyTables.createProductoTable();
+		DerbyTables.createFactura_ProductoTable();
+		DerbyTables.createFacturaTable();
+	}
 }
