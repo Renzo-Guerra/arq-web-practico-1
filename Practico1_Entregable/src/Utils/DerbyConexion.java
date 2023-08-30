@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DerbyConexion {
+	// esto lo vamos a refactorizar
 	private static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
 	private static String uri = "jdbc:derby:derbyDb;create=true";
 	
