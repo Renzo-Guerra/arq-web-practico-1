@@ -38,8 +38,8 @@ public class DerbyDAOFactory implements DAOFactoryInterface{
 
 	private void createTables() {
 		DerbyTables.createClienteTable();
+		DerbyTables.createFacturaTable();
 		DerbyTables.createProductoTable();
 		DerbyTables.createFactura_ProductoTable();
-		DerbyTables.createFacturaTable();
 	}
 }
