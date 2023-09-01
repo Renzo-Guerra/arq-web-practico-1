@@ -1,10 +1,13 @@
 package Factories;
 
+import java.util.List;
+
 import DAO.DAOCliente;
 import DAO.DAOFactura;
 import DAO.DAOFactura_Producto;
 import DAO.DAOProducto;
 import DerbyDAO.DerbyDAOCliente;
+import Entidades.*;
 import Utils.DerbyTables;
 import Utils.Seeders;
 
@@ -39,8 +42,15 @@ public class DerbyDAOFactory implements DAOFactoryInterface{
 
 	private void createTables() {
 		DerbyTables.createClienteTable();
-		Seeders.clientesSeeders();
+		List<Cliente> clientes = Seeders.clientesSeeders();
+		for(int i = 0; i < clientes.size(); i++) {
+			getDaoCliente().nuevoCliente(clientes.get(i));
+		}
 		DerbyTables.createFacturaTable();
+		List<Factura> facturas = Seeders.facturasSeeders();
+		for(int i = 0; i < facturas.size(); i++) {
+			getDaoFactura().nuevaFactura(facturas.get(i));
+		}
 		DerbyTables.createProductoTable();
 		DerbyTables.createFactura_ProductoTable();
 	}

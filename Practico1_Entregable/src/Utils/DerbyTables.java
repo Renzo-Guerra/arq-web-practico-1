@@ -8,11 +8,10 @@ public class DerbyTables {
 		
 		String table = "CREATE TABLE cliente("
 				+ "idCliente INT,"
-				+ "nombre VARCHAR(50),"
-				+ "email VARCHAR(50),"
+				+ "nombre VARCHAR(500),"
+				+ "email VARCHAR(150),"
 				+ "PRIMARY KEY(idCliente))";
 		try {
-			System.out.println(table);
 			DerbyConexion.getInstance().prepareStatement(table).execute();
 			DerbyConexion.getInstance().commit();
 		}catch(SQLException e) {

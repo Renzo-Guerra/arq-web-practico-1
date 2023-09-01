@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		DAOFactoryInterface factory = DAOFactory.getDaos(DAOFactory.derby);
 		DAOCliente daoCliente = factory.getDaoCliente();
-				
+		daoCliente.listarClientes();		
 	}
 
 }
