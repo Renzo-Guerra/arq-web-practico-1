@@ -26,7 +26,6 @@ public class DerbyDAOCliente implements DAOCliente{
 			e.printStackTrace();
 			System.exit(1);
 		}
-		
 	}
 
 	@Override
@@ -42,7 +41,6 @@ public class DerbyDAOCliente implements DAOCliente{
 			e.printStackTrace();
 			System.exit(1);
 		}
-		
 	}
 	
 	

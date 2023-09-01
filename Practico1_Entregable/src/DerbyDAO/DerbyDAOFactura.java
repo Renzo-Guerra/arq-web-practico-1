@@ -1,5 +1,6 @@
 package DerbyDAO;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import DAO.DAOFactura;
@@ -29,8 +30,17 @@ public class DerbyDAOFactura implements DAOFactura{
 
 	@Override
 	public void listarFacturas() {
-		// TODO Auto-generated method stub
-		
+		String select = "SELECT * FROM factura";
+		try {
+			PreparedStatement ps = DerbyConexion.getInstance().prepareStatement(select);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				System.out.println("Factura ID: " + rs.getInt(1) + " - Cliente ID: " + rs.getInt(2));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
 	}
 
 
