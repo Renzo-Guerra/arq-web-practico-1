@@ -23,7 +23,6 @@ public class MySQLDAOFactura_Producto implements DAOFactura_Producto{
 			ps.setInt(3, fp.getCantidad());
 			ps.executeUpdate();
 			ps.close();
-//			MySQLConexion.getInstance().commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.exit(1);

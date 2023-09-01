@@ -22,7 +22,6 @@ public class MySQLDAOCliente implements DAOCliente{
 			ps.setString(3, c.getMail());
 			ps.executeUpdate();
 			ps.close();
-//			MySQLConexion.getInstance().commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.exit(1);

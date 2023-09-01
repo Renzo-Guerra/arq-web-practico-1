@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import DAO.DAOFactura;
 import Entidades.Factura;
+
 import Utils.MySQLConexion;
 
 public class MySQLDAOFactura implements DAOFactura{

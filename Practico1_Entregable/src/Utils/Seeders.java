@@ -79,7 +79,6 @@ public class Seeders {
 		List<Factura_Producto> facturasProductos = new ArrayList<>();
 		for(CSVRecord row: parser) {
 			Factura_Producto fp = new Factura_Producto(Integer.parseInt(row.get(0)), Integer.parseInt(row.get(1)), Integer.parseInt(row.get(2)));
-			System.out.println(fp);
 			facturasProductos.add(fp);
 		}
 		return facturasProductos;
