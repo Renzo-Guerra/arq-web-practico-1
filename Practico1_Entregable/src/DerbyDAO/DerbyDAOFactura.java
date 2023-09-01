@@ -25,7 +25,6 @@ public class DerbyDAOFactura implements DAOFactura{
 			e.printStackTrace();
 			System.exit(1);
 		}
-		
 	}
 
 	@Override

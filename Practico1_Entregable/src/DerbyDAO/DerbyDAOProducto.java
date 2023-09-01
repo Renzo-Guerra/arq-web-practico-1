@@ -41,6 +41,11 @@ public class DerbyDAOProducto implements DAOProducto{
 			e.printStackTrace();
 			System.exit(1);
 		}
+	}
+
+	@Override
+	public void listarProductoMayorRecaudacion() {
+		// TODO Auto-generated method stub
 		
 	}
 	

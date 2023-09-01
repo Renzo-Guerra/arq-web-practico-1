@@ -14,7 +14,13 @@ public class DerbyDAOFactura_Producto implements DAOFactura_Producto{
 
 	@Override
 	public void nuevaFacturaProducto(Factura_Producto fp) {
-		String insert = "INSERT INTO factura_producto (idFactura, idProducto, cantidad) VALUES (?, ?, ?)";
+		String insert = 
+				"""
+				INSERT INTO factura_producto 
+				(idFactura, idProducto, cantidad) 
+				VALUES (?, ?, ?)
+				
+				""";
 		try {
 			PreparedStatement ps = DerbyConexion.getInstance().prepareStatement(insert);
 			ps.setInt(1, fp.getIdFactura());

@@ -61,9 +61,10 @@ public class DerbyDAOFactory implements DAOFactoryInterface{
 			getDaoProducto().nuevoproducto(productos.get(i));
 		}
 		DerbyTables.createFactura_ProductoTable();
-//		List<Factura_Producto> facturas_productos = Seeders.facturasproductosSeeders();
-//		for(int i = 0; i < facturas_productos.size(); i++) {
-//			getDaoFactura_Productos().;
-//		}
+		List<Factura_Producto> facturas_productos = Seeders.facturasproductosSeeders();
+		for(int i = 0; i < facturas_productos.size(); i++) {
+			System.out.println(facturas_productos.get(i));
+			getDaoFactura_Producto().nuevaFacturaProducto(facturas_productos.get(i));
+		}
 	}
 }

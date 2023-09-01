@@ -3,6 +3,7 @@ package Utils;
 import java.sql.SQLException;
 
 public class MySQLTables {
+	
 	public static void createClienteTable() {
 		String table = "CREATE TABLE IF NOT EXISTS cliente("
 				+ "idCliente INT,"
@@ -22,7 +23,6 @@ public class MySQLTables {
 				+ "idFactura INT,"
 				+ "idProducto INT,"
 				+ "cantidad INT,"
-				+ "PRIMARY KEY(idFactura),"
 				+ "FOREIGN KEY (idFactura) REFERENCES factura(idFactura),"
 				+ "FOREIGN KEY (idProducto) REFERENCES producto(idProducto))";
 		try {

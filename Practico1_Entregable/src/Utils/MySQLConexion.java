@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class MySQLConexion {
 	private static String driver = "com.mysql.cj.jdbc.Driver";
-	private static String uri = "jdbc:mysql://localhost:3306/jdbcsql";
+	private static String uri = "jdbc:mysql://localhost:3306/db_arqWeb";
 	private static String user = "root";
 	private static String pass = "";
 	

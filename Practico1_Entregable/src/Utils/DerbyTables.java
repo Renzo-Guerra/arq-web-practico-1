@@ -25,8 +25,8 @@ public class DerbyTables {
 				+ "idFactura INT,"
 				+ "idProducto INT,"
 				+ "cantidad INT,"
-				+ "PRIMARY KEY(idFactura)," 
-				+ "FOREIGN KEY(idFactura) REFERENCES factura(idFactura)," + "FOREIGN KEY (idProducto) REFERENCES producto(idProducto))";
+				+ "FOREIGN KEY(idFactura) REFERENCES factura(idFactura)," 
+				+ "FOREIGN KEY(idProducto) REFERENCES producto(idProducto))";
 		try {
 			DerbyConexion.getInstance().prepareStatement(table).execute();
 			DerbyConexion.getInstance().commit();
