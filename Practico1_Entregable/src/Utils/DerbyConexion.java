@@ -13,8 +13,9 @@ public class DerbyConexion {
 	private static Connection conexion;
 	
 	public static Connection getInstance() {
-		if(conexion == null)
+		if(conexion == null) {
 			instantiate();
+		}
 		return conexion;
 	}
 

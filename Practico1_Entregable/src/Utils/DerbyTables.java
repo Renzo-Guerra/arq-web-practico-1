@@ -3,13 +3,16 @@ package Utils;
 import java.sql.SQLException;
 
 public class DerbyTables {
+	
 	public static void createClienteTable() {
+		
 		String table = "CREATE TABLE cliente("
 				+ "idCliente INT,"
-				+ "nombre VARCHAR(500),"
-				+ "email VARCHAR(150),"
+				+ "nombre VARCHAR(50),"
+				+ "email VARCHAR(50),"
 				+ "PRIMARY KEY(idCliente))";
 		try {
+			System.out.println(table);
 			DerbyConexion.getInstance().prepareStatement(table).execute();
 			DerbyConexion.getInstance().commit();
 		}catch(SQLException e) {
@@ -23,7 +26,8 @@ public class DerbyTables {
 				+ "idFactura INT,"
 				+ "idProducto INT,"
 				+ "cantidad INT,"
-				+ "PRIMARY KEY(idFactura) FOREIGN KEY (idFactura) REFERENCES factura(idFactura) FOREIGN KEY (idProducto) REFERENCES producto(idProducto))";
+				+ "PRIMARY KEY(idFactura)," 
+				+ "FOREIGN KEY(idFactura) REFERENCES factura(idFactura)," + "FOREIGN KEY (idProducto) REFERENCES producto(idProducto))";
 		try {
 			DerbyConexion.getInstance().prepareStatement(table).execute();
 			DerbyConexion.getInstance().commit();
@@ -37,7 +41,8 @@ public class DerbyTables {
 		String table = "CREATE TABLE factura("
 				+ "idFactura INT,"
 				+ "idCliente INT,"
-				+ "PRIMARY KEY(idFactura) FOREIGN KEY (idCliente) REFERENCES cliente(idCliente)))";
+				+ "PRIMARY KEY(idFactura)," 
+				+ "FOREIGN KEY(idCliente) REFERENCES cliente(idCliente))";
 		try {
 			DerbyConexion.getInstance().prepareStatement(table).execute();
 			DerbyConexion.getInstance().commit();
