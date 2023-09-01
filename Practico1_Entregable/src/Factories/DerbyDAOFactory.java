@@ -6,6 +6,7 @@ import DAO.DAOFactura_Producto;
 import DAO.DAOProducto;
 import DerbyDAO.DerbyDAOCliente;
 import Utils.DerbyTables;
+import Utils.Seeders;
 
 
 public class DerbyDAOFactory implements DAOFactoryInterface{
@@ -38,6 +39,7 @@ public class DerbyDAOFactory implements DAOFactoryInterface{
 
 	private void createTables() {
 		DerbyTables.createClienteTable();
+		Seeders.clientesSeeders();
 		DerbyTables.createFacturaTable();
 		DerbyTables.createProductoTable();
 		DerbyTables.createFactura_ProductoTable();
