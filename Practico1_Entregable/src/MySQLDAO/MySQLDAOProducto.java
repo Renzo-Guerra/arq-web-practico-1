@@ -48,10 +48,15 @@ public class MySQLDAOProducto implements DAOProducto{
 	public void listarProductoMayorRecaudacion() {
 		String select = 
 				"""
-				SELECT p.idProducto, fp.cantidad * p.valor as totalRecaudado 
-				FROM producto p 
-				LEFT JOIN factura_producto fp ON fp.idProducto = p.idProducto
-				GROUP BY p.idProducto;
+				SELECT fpp.idProducto, fpp.cantidad*fpp.valor
+				FROM (
+				    SELECT fp.idProducto, p.valor, SUM(fp.cantidad) AS cantidad
+				    FROM factura_producto fp JOIN producto p
+				    ON fp.idProducto = p.idProducto
+				    GROUP BY fp.idProducto) fpp
+				GROUP BY fpp.idProducto
+				ORDER BY fpp.cantidad*fpp.valor DESC
+				LIMIT 1
 				""";
 		try {
 			PreparedStatement ps = MySQLConexion.getInstance().prepareStatement(select);
