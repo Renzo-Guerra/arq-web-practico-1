@@ -18,11 +18,13 @@ public class MySQLTables {
 	}
 	
 	public static void createFactura_ProductoTable() {
-		String table = "CREATE TABLE TABLE IF NOT EXISTS factura_producto("
+		String table = "CREATE TABLE IF NOT EXISTS factura_producto("
 				+ "idFactura INT,"
-				+ "idProducto INT,,"
+				+ "idProducto INT,"
 				+ "cantidad INT,"
-				+ "PRIMARY KEY(idFactura))";
+				+ "PRIMARY KEY(idFactura),"
+				+ "FOREIGN KEY (idFactura) REFERENCES factura(idFactura),"
+				+ "FOREIGN KEY (idProducto) REFERENCES producto(idProducto))";
 		try {
 			MySQLConexion.getInstance().prepareStatement(table).execute();
 		}catch(SQLException e) {
@@ -32,10 +34,11 @@ public class MySQLTables {
 	}
 	
 	public static void createFacturaTable() {
-		String table = "CREATE TABLE TABLE IF NOT EXISTS factura("
+		String table = "CREATE TABLE IF NOT EXISTS factura("
 				+ "idFactura INT,"
 				+ "idCliente INT,"
-				+ "PRIMARY KEY(idFactura))";
+				+ "PRIMARY KEY(idFactura),"
+				+ "FOREIGN KEY(idCliente) REFERENCES cliente(idCliente))";
 		try {
 			MySQLConexion.getInstance().prepareStatement(table).execute();
 		}catch(SQLException e) {
@@ -45,7 +48,7 @@ public class MySQLTables {
 	}
 	
 	public static void createProductoTable() {
-		String table = "CREATE TABLE TABLE IF NOT EXISTS producto("
+		String table = "CREATE TABLE IF NOT EXISTS producto("
 				+ "idProducto INT,"
 				+ "nombre VARCHAR(45),"
 				+ "valor FLOAT,"
