@@ -24,10 +24,11 @@ public class Main {
 		DAOFactura daoFactura = factory.getDaoFactura();
 		DAOProducto daoProducto = factory.getDaoProducto();
 		DAOFactura_Producto daoFacturaProducto = factory.getDaoFactura_Producto();
-		daoCliente.listarClientes();
-		daoFactura.listarFacturas();
-		daoProducto.listarproductos();
-		daoFacturaProducto.listarFacturasProductos();
+		//daoCliente.listarClientes();
+		//daoFactura.listarFacturas();
+		//daoProducto.listarproductos();
+		//daoFacturaProducto.listarFacturasProductos();
+		daoFactura.ImprimirClientesQueMasFacturaron();
 	}
 
 }
