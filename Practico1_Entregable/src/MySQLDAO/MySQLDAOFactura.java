@@ -44,7 +44,7 @@ public class MySQLDAOFactura implements DAOFactura{
 	}
 
 	@Override
-	public void ImprimirClientesQueMasFacturaron() {
+	public void imprimirClientesQueMasFacturaron() {
 		String select = """
 					SELECT f.idCliente, c.nombre, SUM(p.valor * fp.cantidad) total_gastado 
 					FROM factura f 
