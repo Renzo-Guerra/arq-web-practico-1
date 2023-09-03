@@ -48,9 +48,9 @@ public class MySQLDAOProducto implements DAOProducto{
 	public void listarProductoMayorRecaudacion() {
 		String select = 
 				"""
-				SELECT fpp.idProducto, fpp.cantidad*fpp.valor
+				SELECT fpp.idProducto, fpp.nombre, fpp.cantidad*fpp.valor
 				FROM (
-				    SELECT fp.idProducto, p.valor, SUM(fp.cantidad) AS cantidad
+				    SELECT fp.idProducto, p.nombre, p.valor, SUM(fp.cantidad) AS cantidad
 				    FROM factura_producto fp JOIN producto p
 				    ON fp.idProducto = p.idProducto
 				    GROUP BY fp.idProducto) fpp
@@ -61,6 +61,7 @@ public class MySQLDAOProducto implements DAOProducto{
 		try {
 			PreparedStatement ps = MySQLConexion.getInstance().prepareStatement(select);
 			ResultSet rs = ps.executeQuery();
+			System.out.println("\nEl producto que mas recaudó es: ");
 			while (rs.next()) {
 				System.out.println(rs.getInt(1) + ".- Producto: " + rs.getString(2) + ", Valor: $" + rs.getFloat(3));
 			}

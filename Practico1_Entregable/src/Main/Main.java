@@ -29,6 +29,7 @@ public class Main {
 		//daoProducto.listarproductos();
 		//daoFacturaProducto.listarFacturasProductos();
 		daoFactura.ImprimirClientesQueMasFacturaron();
+		daoProducto.listarProductoMayorRecaudacion();
 	}
 
 }
